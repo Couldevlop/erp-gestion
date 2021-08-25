@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="fournisseur">
+      <h2 data-cy="fournisseurDetailsHeading"><span jhiTranslate="erpgestionApp.fournisseur.detail.title">Fournisseur</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ fournisseur.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.fournisseur.idFournisseur">Id Fournisseur</span></dt>
+        <dd>
+          <span>{{ fournisseur.idFournisseur }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.fournisseur.nomFournisseur">Nom Fournisseur</span></dt>
+        <dd>
+          <span>{{ fournisseur.nomFournisseur }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.fournisseur.raisonSociale">Raison Sociale</span></dt>
+        <dd>
+          <span>{{ fournisseur.raisonSociale }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.fournisseur.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ fournisseur.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.fournisseur.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ fournisseur.adresse }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/fournisseur', fournisseur.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

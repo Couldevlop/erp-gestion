@@ -1,0 +1,35 @@
+{
+  "name": "Commande",
+  "fields": [
+    {
+      "fieldName": "idCommande",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "qte",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "commande",
+      "relationshipName": "commandeArticle"
+    }
+  ],
+  "entityTableName": "commande",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825162820"
+}

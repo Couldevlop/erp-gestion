@@ -1,0 +1,79 @@
+{
+  "name": "Article",
+  "fields": [
+    {
+      "fieldName": "idArticle",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nomArticle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rayon",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "rayonnier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantite",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "pu",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "famille",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "famille",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "categorie",
+      "otherEntityRelationshipName": "article",
+      "relationshipName": "categorie"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "inventaire",
+      "otherEntityRelationshipName": "artInvente",
+      "relationshipName": "inventaire",
+      "otherEntityField": "nomArticle"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "fournisseur",
+      "otherEntityRelationshipName": "fourArticle",
+      "relationshipName": "fournisseur",
+      "otherEntityField": "nomFournisseur"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "commandeArticle",
+      "relationshipName": "commande",
+      "otherEntityField": "description"
+    }
+  ],
+  "entityTableName": "article",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825162817"
+}
