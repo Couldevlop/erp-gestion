@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Article.
+    -->
+    <changeSet id="20210825151101-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="famille_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__famille_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="famille"/>
+
+        <addForeignKeyConstraint baseColumnNames="inventaire_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__inventaire_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="inventaire"/>
+
+        <addForeignKeyConstraint baseColumnNames="fournisseur_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__fournisseur_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fournisseur"/>
+
+        <addForeignKeyConstraint baseColumnNames="commande_id"
+                                 baseTableName="article"
+                                 constraintName="fk_article__commande_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="commande"/>
+    </changeSet>
+</databaseChangeLog>

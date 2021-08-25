@@ -1,0 +1,43 @@
+{
+  "name": "Fournisseur",
+  "fields": [
+    {
+      "fieldName": "idFournisseur",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nomFournisseur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "raisonSociale",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "telephone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresse",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "fournisseur",
+      "relationshipName": "fourArticle"
+    }
+  ],
+  "entityTableName": "fournisseur",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825151100"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Famille",
+  "fields": [
+    {
+      "fieldName": "idFamille",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nomFamille",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "sousFamille",
+      "otherEntityRelationshipName": "famille",
+      "relationshipName": "familleDeSousFamille"
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "famille",
+      "relationshipName": "article",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "famille",
+  "dto": "mapstruct",
+  "pagination": "pagination",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825151102"
+}

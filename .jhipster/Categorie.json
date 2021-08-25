@@ -1,0 +1,31 @@
+{
+  "name": "Categorie",
+  "fields": [
+    {
+      "fieldName": "idCategorie",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nomCategorie",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "categorie",
+      "relationshipName": "article"
+    }
+  ],
+  "entityTableName": "categorie",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825151059"
+}
