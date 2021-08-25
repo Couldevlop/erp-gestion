@@ -1,0 +1,83 @@
+
+
+entity Categorie{
+     idCategorie Long,
+     nomCategorie String,
+}
+
+entity Fournisseur{
+    idFournisseur Long,
+    nomFournisseur String,
+    raisonSociale String,
+    telephone String,
+    adresse String
+}
+
+entity Article {
+	idArticle Long,
+    nomArticle String,
+    rayon String,
+    rayonnier String,
+    description String,
+    quantite Double,
+    pu Double
+}
+
+entity Famille {
+	idFamille Long,
+    nomFamille String,
+    description String
+    
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity SousFamille {
+	idSousFamille Long,
+	nomSousFamille String,
+	description String,
+	stateProvince String
+}
+
+entity Commande {
+	idCommande Long,
+    qte String,
+    description String
+  
+}
+
+relationship OneToMany{
+  Article to Categorie
+  Inventaire{ArtInvente} to Article{inventaire(nomArticle)}
+  Fournisseur{FourArticle} to Article{fournisseur(nomFournisseur)}
+  Commande{CommandeArticle} to Article{commande(description)}
+  Famille{familleDeSousFamille} to SousFamille
+}
+
+
+relationship OneToOne{
+ Article to Famille
+}
+
+
+
+entity Inventaire {
+	idInventaire Long,
+	dateInv Instant,
+	description String
+}
+
+
+
+// Set pagination options
+paginate Article, Fournisseur with infinite-scroll
+paginate Famille with pagination
+
+// Use Data Transfer Objects (DTO)
+ dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
