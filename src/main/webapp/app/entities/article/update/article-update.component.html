@@ -1,0 +1,139 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-article-heading" data-cy="ArticleCreateUpdateHeading" jhiTranslate="erpgestionApp.article.home.createOrEditLabel">
+        Create or edit a Article
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.idArticle" for="field_idArticle">Id Article</label>
+          <input type="number" class="form-control" name="idArticle" id="field_idArticle" data-cy="idArticle" formControlName="idArticle" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.nomArticle" for="field_nomArticle">Nom Article</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomArticle"
+            id="field_nomArticle"
+            data-cy="nomArticle"
+            formControlName="nomArticle"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.rayon" for="field_rayon">Rayon</label>
+          <input type="text" class="form-control" name="rayon" id="field_rayon" data-cy="rayon" formControlName="rayon" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.rayonnier" for="field_rayonnier">Rayonnier</label>
+          <input type="text" class="form-control" name="rayonnier" id="field_rayonnier" data-cy="rayonnier" formControlName="rayonnier" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.description" for="field_description">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.quantite" for="field_quantite">Quantite</label>
+          <input type="number" class="form-control" name="quantite" id="field_quantite" data-cy="quantite" formControlName="quantite" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.pu" for="field_pu">Pu</label>
+          <input type="number" class="form-control" name="pu" id="field_pu" data-cy="pu" formControlName="pu" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.famille" for="field_famille">Famille</label>
+          <select class="form-control" id="field_famille" data-cy="famille" name="famille" formControlName="famille">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="familleOption.id === editForm.get('famille')!.value?.id ? editForm.get('famille')!.value : familleOption"
+              *ngFor="let familleOption of famillesCollection; trackBy: trackFamilleById"
+            >
+              {{ familleOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.inventaire" for="field_inventaire">Inventaire</label>
+          <select class="form-control" id="field_inventaire" data-cy="inventaire" name="inventaire" formControlName="inventaire">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                inventaireOption.id === editForm.get('inventaire')!.value?.id ? editForm.get('inventaire')!.value : inventaireOption
+              "
+              *ngFor="let inventaireOption of inventairesSharedCollection; trackBy: trackInventaireById"
+            >
+              {{ inventaireOption.nomArticle }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.fournisseur" for="field_fournisseur">Fournisseur</label>
+          <select class="form-control" id="field_fournisseur" data-cy="fournisseur" name="fournisseur" formControlName="fournisseur">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                fournisseurOption.id === editForm.get('fournisseur')!.value?.id ? editForm.get('fournisseur')!.value : fournisseurOption
+              "
+              *ngFor="let fournisseurOption of fournisseursSharedCollection; trackBy: trackFournisseurById"
+            >
+              {{ fournisseurOption.nomFournisseur }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" jhiTranslate="erpgestionApp.article.commande" for="field_commande">Commande</label>
+          <select class="form-control" id="field_commande" data-cy="commande" name="commande" formControlName="commande">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="commandeOption.id === editForm.get('commande')!.value?.id ? editForm.get('commande')!.value : commandeOption"
+              *ngFor="let commandeOption of commandesSharedCollection; trackBy: trackCommandeById"
+            >
+              {{ commandeOption.description }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

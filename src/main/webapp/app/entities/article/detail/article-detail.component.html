@@ -1,0 +1,80 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="article">
+      <h2 data-cy="articleDetailsHeading"><span jhiTranslate="erpgestionApp.article.detail.title">Article</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ article.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.idArticle">Id Article</span></dt>
+        <dd>
+          <span>{{ article.idArticle }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.nomArticle">Nom Article</span></dt>
+        <dd>
+          <span>{{ article.nomArticle }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.rayon">Rayon</span></dt>
+        <dd>
+          <span>{{ article.rayon }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.rayonnier">Rayonnier</span></dt>
+        <dd>
+          <span>{{ article.rayonnier }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.description">Description</span></dt>
+        <dd>
+          <span>{{ article.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.quantite">Quantite</span></dt>
+        <dd>
+          <span>{{ article.quantite }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.pu">Pu</span></dt>
+        <dd>
+          <span>{{ article.pu }}</span>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.famille">Famille</span></dt>
+        <dd>
+          <div *ngIf="article.famille">
+            <a [routerLink]="['/famille', article.famille?.id, 'view']">{{ article.famille?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.inventaire">Inventaire</span></dt>
+        <dd>
+          <div *ngIf="article.inventaire">
+            <a [routerLink]="['/inventaire', article.inventaire?.id, 'view']">{{ article.inventaire?.nomArticle }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.fournisseur">Fournisseur</span></dt>
+        <dd>
+          <div *ngIf="article.fournisseur">
+            <a [routerLink]="['/fournisseur', article.fournisseur?.id, 'view']">{{ article.fournisseur?.nomFournisseur }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="erpgestionApp.article.commande">Commande</span></dt>
+        <dd>
+          <div *ngIf="article.commande">
+            <a [routerLink]="['/commande', article.commande?.id, 'view']">{{ article.commande?.description }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/article', article.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

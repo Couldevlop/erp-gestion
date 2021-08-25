@@ -1,0 +1,40 @@
+{
+  "name": "SousFamille",
+  "fields": [
+    {
+      "fieldName": "idSousFamille",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "nomSousFamille",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "stateProvince",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "famille",
+      "otherEntityRelationshipName": "familleDeSousFamille",
+      "relationshipName": "famille"
+    }
+  ],
+  "javadoc": "not an ignored comment",
+  "entityTableName": "sous_famille",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825151103"
+}

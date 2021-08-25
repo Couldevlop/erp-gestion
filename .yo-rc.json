@@ -43,7 +43,9 @@
     "devServerPort": 4200,
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "reactive": false
+    "reactive": false,
+    "entities": ["Categorie", "Fournisseur", "Article", "Famille", "SousFamille", "Commande", "Inventaire"],
+    "lastLiquibaseTimestamp": 1629904265000
   },
   "git-provider": "GitHub",
   "git-company": "Couldevlop",
