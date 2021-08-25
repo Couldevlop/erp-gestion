@@ -51,6 +51,18 @@ public class CacheConfiguration {
             createCache(cm, com.openlab.domain.User.class.getName());
             createCache(cm, com.openlab.domain.Authority.class.getName());
             createCache(cm, com.openlab.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.openlab.domain.Categorie.class.getName());
+            createCache(cm, com.openlab.domain.Fournisseur.class.getName());
+            createCache(cm, com.openlab.domain.Fournisseur.class.getName() + ".fourArticles");
+            createCache(cm, com.openlab.domain.Article.class.getName());
+            createCache(cm, com.openlab.domain.Article.class.getName() + ".categories");
+            createCache(cm, com.openlab.domain.Famille.class.getName());
+            createCache(cm, com.openlab.domain.Famille.class.getName() + ".familleDeSousFamilles");
+            createCache(cm, com.openlab.domain.SousFamille.class.getName());
+            createCache(cm, com.openlab.domain.Commande.class.getName());
+            createCache(cm, com.openlab.domain.Commande.class.getName() + ".commandeArticles");
+            createCache(cm, com.openlab.domain.Inventaire.class.getName());
+            createCache(cm, com.openlab.domain.Inventaire.class.getName() + ".artInventes");
             // jhipster-needle-ehcache-add-entry
         };
     }

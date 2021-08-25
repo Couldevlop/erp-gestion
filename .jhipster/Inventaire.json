@@ -1,0 +1,35 @@
+{
+  "name": "Inventaire",
+  "fields": [
+    {
+      "fieldName": "idInventaire",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dateInv",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "article",
+      "otherEntityRelationshipName": "inventaire",
+      "relationshipName": "artInvente"
+    }
+  ],
+  "entityTableName": "inventaire",
+  "dto": "mapstruct",
+  "pagination": "no",
+  "service": "serviceImpl",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": "*",
+  "changelogDate": "20210825162821"
+}

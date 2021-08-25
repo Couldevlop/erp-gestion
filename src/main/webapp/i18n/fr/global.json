@@ -7,6 +7,13 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "categorie": "Categorie",
+        "fournisseur": "Fournisseur",
+        "article": "Article",
+        "famille": "Famille",
+        "sousFamille": "Sous Famille",
+        "commande": "Commande",
+        "inventaire": "Inventaire",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
